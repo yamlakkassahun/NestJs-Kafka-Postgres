@@ -8,6 +8,8 @@
     "allowSyntheticDefaultImports": true,
     "target": "ES2021",
     "sourceMap": true,
+    "baseUrl": "./",
+    // "ignoreDeprecations": "6.0",
     "outDir": "./dist",
     "incremental": true,
     "skipLibCheck": true,
@@ -18,16 +20,16 @@
     "noFallthroughCasesInSwitch": false,
     "paths": {
       "@app/common": [
-        "./libs/common/src"
+        "libs/common/src"
       ],
       "@app/common/*": [
-        "./libs/common/src/*"
+        "libs/common/src/*"
       ],
       "@app/database": [
-        "./libs/database/src"
+        "libs/database/src"
       ],
       "@app/database/*": [
-        "./libs/database/src/*"
+        "libs/database/src/*"
       ]
     }
   }

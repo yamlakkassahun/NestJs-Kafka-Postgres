@@ -1,8 +1,23 @@
-import { Module } from '@nestjs/common';
-import { DatabaseService } from './database.service';
+// database.module.ts
 
-@Module({
-  providers: [DatabaseService],
-  exports: [DatabaseService],
-})
-export class DatabaseModule {}
+import { DynamicModule, Module } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { getDatabaseOptions } from './config';
+
+@Module({})
+export class DatabaseModule {
+  static forRoot(): DynamicModule {
+    return {
+      module: DatabaseModule,
+      imports: [
+        TypeOrmModule.forRootAsync({
+          imports: [ConfigModule],
+          inject: [ConfigService],
+          useFactory: getDatabaseOptions,
+        }),
+      ],
+      exports: [TypeOrmModule],
+    };
+  }
+}
