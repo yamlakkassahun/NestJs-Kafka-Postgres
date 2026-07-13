@@ -9,7 +9,6 @@
     "target": "ES2021",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./",
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": true,
@@ -19,10 +18,16 @@
     "noFallthroughCasesInSwitch": false,
     "paths": {
       "@app/common": [
-        "libs/common/src"
+        "./libs/common/src"
       ],
       "@app/common/*": [
-        "libs/common/src/*"
+        "./libs/common/src/*"
+      ],
+      "@app/database": [
+        "./libs/database/src"
+      ],
+      "@app/database/*": [
+        "./libs/database/src/*"
       ]
     }
   }
